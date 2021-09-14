@@ -26,7 +26,7 @@ driver = webdriver.Remote(
     desired_capabilities=desired_cap
 )
 # Write your custom code here
-phone = "1288211120"
+phone = "7767760048"
 wait =WebDriverWait(driver,50)
 wait.until(expected_conditions.visibility_of_element_located((By.XPATH,'//android.widget.Button')))
 driver.find_element_by_xpath("//android.widget.TextView[@text='Login']").click()

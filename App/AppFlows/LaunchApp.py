@@ -1,4 +1,4 @@
-from time import thread_time_ns
+# from time import thread_time_ns
 from split import whitelist_user,change_split,delete_bright_uid_from_whitelist
 from appium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -7,31 +7,33 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.action_chains import ActionChains
 from FindBUID import get_bright_uid
 from CheckingLink import linkCheckingAccount
-
-# from ProjectBase.DesiredCapabilities import desiredCaps
+import os,sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from ProjectBase.DesiredCapabilities import desiredCaps
 import random
 import time
 
 # 9211295590 is the number which ran through the automation and is at 
 
-desired_caps={
-    "udid": "PLEGAR1760905543",
-  "platformName": "Android",
-  "platformVersion": "9",
-  "deviceName": "Nokia 6",
-  "automationName": "UiAutomator2",
-  "appPackage": "com.brightcapital.app.dev",
-  "appActivity": "com.brightcapital.app.MainActivity"
-}
+# desired_caps={
+#     "udid": "PLEGAR1760905543",
+#   "platformName": "Android",
+#   "platformVersion": "9",
+#   "deviceName": "Nokia 6",
+#   "automationName": "UiAutomator2",
+#   "appPackage": "com.brightcapital.app.dev",
+#   "appActivity": "com.brightcapital.app.MainActivity"
+# }
 # add desired capabilities in a new file
-driver= webdriver.Remote('http://127.0.0.1:4723/wd/hub',desired_caps)
-# driver = desiredCaps()
+# driver= webdriver.Remote('http://127.0.0.1:4723/wd/hub',desired_caps)
+driver = desiredCaps()
 wait =WebDriverWait(driver,50)
 
 ##wait
 # WebDriverWait(driver,12).until(EC.visibility_of_all_elements_located(By.XPATH("//android.widget.Button")))
 phone='1288211125'
 # change_split("on")
+driver.implicitly_wait(20)
 wait.until(expected_conditions.visibility_of_element_located((By.XPATH,'//android.widget.Button')))
 # driver.implicitly_wait(20)
 driver.find_element_by_xpath("//android.widget.TextView[@text='Login']").click()
@@ -40,23 +42,23 @@ driver.find_element_by_xpath("//android.view.ViewGroup[@content-desc='btn_Back']
 
 wait.until(expected_conditions.visibility_of_element_located((By.XPATH,"//android.widget.Button[@content-desc='option-0']")))
 driver.find_element_by_xpath("//android.widget.Button[@content-desc='option-0']").click()
-driver.implicitly_wait(5)
+driver.implicitly_wait(20)
 driver.find_element_by_xpath("//android.widget.TextView[@text='Continue']").click()
 wait.until(expected_conditions.visibility_of_element_located((By.XPATH,"//android.widget.TextView[@text='update installed']")))
 driver.find_element_by_xpath("//android.widget.Button[@text='OK']").click()
 
 wait.until(expected_conditions.visibility_of_element_located((By.XPATH,"//android.widget.TextView[@text='Get Started']")))
 driver.find_element_by_xpath("//android.widget.TextView[@text='Get Started']").click()
-driver.implicitly_wait(5)
+driver.implicitly_wait(20)
 driver.find_element_by_xpath("//android.widget.TextView[@text='Continue']").click()
 
-driver.implicitly_wait(5)
+driver.implicitly_wait(20)
 driver.find_element_by_xpath("//android.widget.TextView[@text='Continue']").click()
 
-driver.implicitly_wait(5)
+driver.implicitly_wait(20)
 driver.find_element_by_xpath("//android.widget.TextView[@text='Continue']").click()
 
-driver.implicitly_wait(5)
+driver.implicitly_wait(20)
 driver.find_element_by_xpath("//android.widget.TextView[@text='Learn more']").click()
 
 wait.until(expected_conditions.visibility_of_element_located((By.XPATH,"//android.widget.TextView[@text='Built by the best']")))
@@ -68,31 +70,31 @@ driver.find_element_by_xpath("//android.widget.TextView[@text='Continue']").clic
 wait.until(expected_conditions.visibility_of_element_located((By.XPATH,"//android.widget.TextView[@text='Yes, let’s do this...']")))
 driver.find_element_by_xpath("//android.widget.TextView[@text='Yes, let’s do this...']").click()
 
-driver.implicitly_wait(5)
+driver.implicitly_wait(20)
 driver.find_element_by_xpath("(//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup)[1]").click()
 driver.find_element_by_accessibility_id('btn_Next').click()
 
-driver.implicitly_wait(5)
+driver.implicitly_wait(20)
 driver.find_element_by_xpath("(//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup)[1]").click()
 driver.find_element_by_accessibility_id('btn_Next').click()
 
-driver.implicitly_wait(5)
+driver.implicitly_wait(20)
 driver.find_element_by_xpath("(//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup)[1]").click()
 driver.find_element_by_accessibility_id('btn_Next').click()
 
-driver.implicitly_wait(5)
+driver.implicitly_wait(20)
 driver.find_element_by_xpath("(//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup)[1]").click()
 driver.find_element_by_accessibility_id('btn_Next').click()
 
-driver.implicitly_wait(5)
+driver.implicitly_wait(20)
 driver.find_element_by_xpath("(//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup)[1]").click()
 driver.find_element_by_accessibility_id('btn_Next').click()
 
-driver.implicitly_wait(5)
+driver.implicitly_wait(20)
 driver.find_element_by_xpath("(//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup)[1]").click()
 driver.find_element_by_accessibility_id('btn_Next').click()
 
-driver.implicitly_wait(5)
+driver.implicitly_wait(20)
 driver.find_element_by_xpath("(//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup)[1]").click()
 driver.find_element_by_accessibility_id('btn_Next').click()
 
@@ -200,7 +202,7 @@ bright_uid = get_bright_uid("+1"+phone)
 whitelist_user("target_card_in_funnel_experiment",bright_uid,"on")
 whitelist_user("monetization_plan_experiment",bright_uid,"treatment11")
 # all whitelist at same place
-driver.implicitly_wait(5)
+driver.implicitly_wait(20)
 driver.find_element_by_accessibility_id('btn_Continue').click()
 
 wait.until(expected_conditions.visibility_of_element_located((By.XPATH,"//android.widget.TextView[@text='Great! Now, let’s work on YOUR tailored debt-free plan']")))
@@ -229,7 +231,7 @@ driver.find_element_by_xpath("//android.view.ViewGroup[@content-desc='btn_Back']
 
 wait.until(expected_conditions.visibility_of_element_located((By.XPATH,"//android.widget.Button[@content-desc='option-0']")))
 driver.find_element_by_xpath("//android.widget.Button[@content-desc='option-0']").click()
-driver.implicitly_wait(5)
+driver.implicitly_wait(20)
 driver.find_element_by_xpath("//android.widget.TextView[@text='Continue']").click()
 wait.until(expected_conditions.visibility_of_element_located((By.XPATH,"//android.widget.TextView[@text='update installed']")))
 driver.find_element_by_xpath("//android.widget.Button[@text='OK']").click()
@@ -327,7 +329,7 @@ wait.until(expected_conditions.visibility_of_element_located((By.XPATH("//androi
 driver.find_element_by_accessibility_id("card-3333").click()
 driver.implicitly_wait(3)
 driver.find_element_by_xpath("//android.widget.TextView[@text='Continue']").click()
-driver.implicitly_wait(5)
+driver.implicitly_wait(20)
 
 wait.until(expected_conditions.visibility_of_element_located((By.XPATH,"//android.widget.TextView[@content-desc='brightRecommendTitle']")))
 driver.find_element_by_accessibility_id("next_button").click()
