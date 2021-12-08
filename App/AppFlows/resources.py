@@ -131,3 +131,18 @@ collection={
     }
   },
 }
+body = {
+  "MAKE_CB_ELIGIBLE":{
+    "url":"http://ec2-52-35-238-212.us-west-2.compute.amazonaws.com/api/v0/credit/eligibility/consume/",
+    "data":{
+      "bright_uid": "2f164aac-b11a-4212-a939-c971a0722f9d",
+      "product": "CREDIT_BUILDER",
+      "is_eligible": True,
+      "mle_split": True,
+      "eligibility_meta": {}
+      }
+  
+  }
+}
+
+

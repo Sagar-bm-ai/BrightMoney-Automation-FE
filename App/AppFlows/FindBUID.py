@@ -12,12 +12,12 @@ def get_bright_uid(PHONE_NUMBER):
     try :   
         conn = psycopg2.connect(dbname=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
         cur = conn.cursor()
-        cur.execute("SELECT bright_user_id FROM bm_users_userprofile WHERE primary_phonenum = %s;",(str(PHONE_NUMBER),))
+        cur.execute("SELECT bright_user_id FROM bm_users_userprofile WHERE primary_phonenum = %s;",(PHONE_NUMBER,))
         bright_user_id = cur.fetchone()[0]
-        # print(type(bright_user_id))
         if bright_user_id != None:            
             cur.execute("SELECT bright_uid FROM bm_users_brightuser WHERE id =%s;",(str(bright_user_id),))          
             bright_uid = cur.fetchone()[0]
+            # print(type(bright_uid))
             return bright_uid
         else:
             return False       
@@ -29,7 +29,7 @@ def get_bright_uid(PHONE_NUMBER):
             conn.close()
     return False
 
-# b_id=get_bright_uid('+19211295590')
+# b_id=get_bright_uid('+11399315565')
 # print(b_id)
 
 def get_access_code(PHONE_NUMBER):
