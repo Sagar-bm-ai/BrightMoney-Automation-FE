@@ -21,7 +21,7 @@ def makeUserCBEligible(url,data,headers):
 
 
 
-phone_num="+11399315564"
+phone_num="+11399315571"
 buid = get_bright_uid(phone_num)
 url = body["MAKE_CB_ELIGIBLE"]["url"]
 
